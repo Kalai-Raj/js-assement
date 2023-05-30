@@ -18,6 +18,7 @@
 
       5. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
 *************************** */
+
 window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
   start.addEventListener('click', function (e) {
@@ -32,25 +33,18 @@ window.addEventListener('DOMContentLoaded', () => {
       q: 'Which is the third planet from the sun?',
       o: ['Saturn', 'Earth', 'Pluto', 'Mars'],
       a: 1, // array index 1 - so Earth is the correct answer here
-
-
     },
     {
       q: 'Which is the largest ocean on Earth?',
-<<<<<<< HEAD
       o: ['Atlantic Ocean', 'Indian Ocean', 'Arctic Ocean', 'Pacific Ocean'],
       a: 3,// array index 3 -pacific ocean is the correct answer
     },
     {
       q: 'What is the capital of Australia',
-=======
-@@ -44,8 +46,20 @@ window.addEventListener('DOMContentLoaded', () => {
->>>>>>> 68c9725b2e2527f7aff033583cca0f92538bce42
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1, // array index 1 - canberra is the correct answer
     },
     {
-<<<<<<< HEAD
       q: 'How many States are there in Australia?',
       o: ['4', '5', '3', '6'],
       a: 3, // aray index 3 - 6 is the correct answer
@@ -61,20 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 0, // array index 0 - kangaroo is the correct answer
     },
       
-=======
-      q: 'What is the capital of France',
-      o: ['Paris', 'Lyon', 'Marseille', 'Nice'],
-      a: 0,
-    },
-    {
-      q: 'What is the capital of Germany',
-      o: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'],
-      a: 0,
-    }
->>>>>>> 68c9725b2e2527f7aff033583cca0f92538bce42
   ];
-
-
 
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
@@ -92,6 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
       quizWrap.innerHTML = quizDisplay;
     });
   };
+
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
@@ -110,10 +92,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (radioElement.checked) {
           // code for task 1 goes here
-<<<<<<< HEAD
-=======
-          // code for task 1 goes here plus else statement just to be extra
->>>>>>> 68c9725b2e2527f7aff033583cca0f92538bce42
           if (quizItem.a == i) {
             score += 1;
           } else {
@@ -123,21 +101,11 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-<<<<<<< HEAD
     const scoreDisplay = document.querySelector("#score");
         scoreDisplay.innerHTML = ` TOTAL SCORE: ${score} / ${quizArray.length}`;
   
         btnSubmit.style.display = "none";
   
-=======
-      const scoreDisplay = document.querySelector("#score");
-      scoreDisplay.innerHTML = ` TOTAL SCORE: ${score} / ${quizArray.length}`;
-
-      btnSubmit.style.display = "none";
-
-    })
-
->>>>>>> 68c9725b2e2527f7aff033583cca0f92538bce42
   };
 // countdown timer //
 let sec = 300;
@@ -166,35 +134,6 @@ function myTimer() {
  btnReset.addEventListener("click", () => {
    location.reload();
  });
-
-
- // countdown timer //
- let sec = 60;
- let timer = setInterval(myTimer, 1000);
- function myTimer() {
-     document.getElementById('time').innerHTML = sec + " sec";
-     sec--;
-     if (sec == -1) {
-         clearInterval(timer);
-         calculateScore();
-
-         alert(`Times up!!`); 
-     }
-   };
-
-
-
- // event listener  submit button
-  const btnSubmit = document.querySelector("#btnSubmit");
-  btnSubmit.addEventListener("click", () => {
-    calculateScore();
-  });
-
-  // event listener reset button 
-  const btnReset = document.querySelector("#btnReset");
-  btnReset.addEventListener("click", () => {
-    location.reload();
-  });
 
   // call the displayQuiz function
   displayQuiz();
