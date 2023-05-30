@@ -37,13 +37,24 @@ window.addEventListener('DOMContentLoaded', () => {
     {
       q: 'Which is the largest ocean on Earth?',
       o: ['Atlantic Ocean', 'Indian Ocean', 'Arctic Ocean', 'Pacific Ocean'],
-      a: 3,
+      a: 3,// array index 3 -pacific ocean is the correct answer
     },
     {
       q: 'What is the capital of Australia',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
-      a: 1,
+      a: 1, // array index 1 - canberra is the correct answer
     },
+    {
+      q: 'How many States are there in Australia?',
+      o: ['4', '5', '3', '6'],
+      a: 3, // aray index 3 - 6 is the correct answer
+    },
+    {
+      q: 'What is the national animal of Australia?',
+      o: ['Kangaroo', 'Emu', 'koala', 'Camel'],
+      a: 0, // array index 0 - kangaroo is the correct answer
+    },
+      
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -76,14 +87,53 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+          liElement.style.backgroundColor = "#00A600";
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
+          if (quizItem.a == i) {
+            score += 1;
+          } else {
+
+            liElement.style.backgroundColor = "#FF0000";
+          }
         }
       }
     });
+    const scoreDisplay = document.querySelector("#score");
+        scoreDisplay.innerHTML = ` TOTAL SCORE: ${score} / ${quizArray.length}`;
+  
+        btnSubmit.style.display = "none";
+  
   };
+// countdown timer //
+let sec = 300;
+let timer = setInterval(myTimer, 1000);
+function myTimer() {
+    document.getElementById('time').innerHTML = sec + " sec";
+    sec--;
+    if (sec == -1) {
+        clearInterval(timer);
+        calculateScore();
+
+        alert(`Times up!!`); 
+    }
+  };
+
+
+
+// event listener  submit button
+ const btnSubmit = document.querySelector("#btnSubmit");
+ btnSubmit.addEventListener("click", () => {
+   calculateScore();
+ });
+
+ // event listener reset button 
+ const btnReset = document.querySelector("#btnReset");
+ btnReset.addEventListener("click", () => {
+   location.reload();
+ });
 
   // call the displayQuiz function
   displayQuiz();
