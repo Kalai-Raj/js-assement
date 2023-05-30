@@ -108,7 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
   };
 // countdown timer //
-let sec = 300;
+let sec = 250;
 let timer = setInterval(myTimer, 1000);
 function myTimer() {
     document.getElementById('time').innerHTML = sec + " sec";
